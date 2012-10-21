@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Blank Calculator</title>
+<link href="calculator_styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="blank_price_validation.js"></script>
+<script type="text/javascript">
+<!-- 
+$(document).ready(function() {
+	$('#calculateTotal').click(function() {
+			/*This code is to calculate an order total based on quantity multipliers for blank garments*/
+						
+			var basePrice=$('#baseprice').val();//input of Base Price field
+			var garmentQuantity=$('#quantity').val(); //input of garment quantity field
+			var multiplier=0; //calculated by garment quantity input
+			
+			/* quantity 1-5 */	
+				if ((basePrice >0 && basePrice<=.99) && (garmentQuantity >0 && garmentQuantity<5)) {
+    				multiplier = 5;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 4.10;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 3.15;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.95;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.75;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.50;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.30;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.15;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.10;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.05;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.02;
+				} else if ((basePrice >=40.00) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				multiplier = 2.00;
+			/* quantity 6-11 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 4.90;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 3.85;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 3.00;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 2.70;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 2.40;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 2.25;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 2.10;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 2.00;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 1.90;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 1.86;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 1.84;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				multiplier = 1.81;
+			/* quantity 12-23 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 4.80;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 3.50;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 2.95;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 2.60;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 2.25;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 2.10;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 2.00;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 1.85;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 1.75;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 1.70;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 1.66;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				multiplier = 1.63;
+			/* quantity 24-35 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 4.70;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 3.25;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 2.60;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 2.20;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 2.00;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.90;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.85;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.75;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.65;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.60;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.55;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				multiplier = 1.50;			
+			/* quantity 36-59 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 4.60;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 2.80;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 2.30;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 2.05;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.85;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.80;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.70;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.60;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.56;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.51;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.47;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.44;
+			/* quantity 60-95 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 4.50;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 2.55;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 2.18;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.92;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.72;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.65;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.58;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.50;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.46;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				multiplier = 1.43;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.39;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				multiplier = 1.36;
+			/* quantity 96-143 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 4.40;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 2.30;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 2.05;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.80;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.60;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.50;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.45;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.40;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.37;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.34;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.30;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				multiplier = 1.28;
+			/* quantity 144-239 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 4.30;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 2.20;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.80;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.65;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.52;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.45;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.40;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.37;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.34;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.31;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.28;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				multiplier = 1.26;
+			/* quantity 240-383 */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 4.20;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 2.10;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.75;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.60;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.49;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.43;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.38;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.35;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.33;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.30;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.27;
+				} else if ((basePrice >=40.00) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				multiplier = 1.25;
+			/* quantity 384+ */	
+				} else if ((basePrice >=0 && basePrice<=.99) && (garmentQuantity >384)) {
+    				multiplier = 4.10;
+				} else if ((basePrice >=1 && basePrice<=1.49) && (garmentQuantity >384)) {
+    				multiplier = 2.00;
+				} else if ((basePrice >=1.50 && basePrice<=2.24) && (garmentQuantity >384)) {
+    				multiplier = 1.65;
+				} else if ((basePrice >=2.25 && basePrice<=3.24) && (garmentQuantity >384)) {
+    				multiplier = 1.50;
+				} else if ((basePrice >=3.25 && basePrice<=4.49) && (garmentQuantity >384)) {
+    				multiplier = 1.39;
+				} else if ((basePrice >=4.50 && basePrice<=6.99) && (garmentQuantity >384)) {
+    				multiplier = 1.33;
+				} else if ((basePrice >=7.00 && basePrice<=9.99) && (garmentQuantity >384)) {
+    				multiplier = 1.28;
+				} else if ((basePrice >=10.00 && basePrice<=12.99) && (garmentQuantity >384)) {
+    				multiplier = 1.25;
+				} else if ((basePrice >=13.00 && basePrice<=15.99) && (garmentQuantity >384)) {
+    				multiplier = 1.23;
+				} else if ((basePrice >=16.00 && basePrice<=19.99) && (garmentQuantity >384)) {
+    				multiplier = 1.20;	
+				} else if ((basePrice >=20.00 && basePrice<=39.99) && (garmentQuantity >384)) {
+    				multiplier = 1.17;
+				} else if ((basePrice >=40.00) && (garmentQuantity >384)) {
+    				multiplier = 1.15;
+			}
+							
+			var shirtPrice = basePrice * multiplier							
+			var totalCost = shirtPrice.toFixed(2) * garmentQuantity; 
+			
+			validateBlankForm()
+			$('#perShirt').html(formatCurrency(shirtPrice));
+			$('#mult').html(multiplier);
+			$('#total').html(formatCurrency(totalCost));
+			//$('#result').css('display', 'block');//replaced by validation function
+	});
+});
+
+// Function to format currency from www.JavaScriptBank.com 
+
+function formatCurrency(num) {
+		num = num.toString().replace(/\$|\,/g,'');
+		if(isNaN(num))
+		num = "0";
+		sign = (num == (num = Math.abs(num)));
+		num = Math.floor(num*100+0.50000000001);
+		cents = num%100;
+		num = Math.floor(num/100).toString();
+		if(cents<10)
+		cents = "0" + cents;
+		for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+		num = num.substring(0,num.length-(4*i+3))+','+
+		num.substring(num.length-(4*i+3));
+	return (((sign)?'':'-') + '$' + num + '.' + cents);
+	}
+-->
+</script>
+</head>
+<body>
+<h1>Blank Garment Price Calculator</h1>
+<form id="calc" name="calc" action ="">
+	<p>
+      <input id="baseprice" name="baseprice" type="text" />
+      <label for="baseprice">Base Price</label>
+    </p>
+  	<p>
+      <input id="quantity" name="quantity" type="text"/>
+      <label for="quantity">Number of Garments</label>
+    </p>
+  
+    <p><input name="calculateTotal" id="calculateTotal" type="button" value="Calculate Total" />
+	<input name="resetAll" id="resetAll"type="reset" value="Reset" onclick="document.location.reload()"/><br></p>
+    </p>
+    <div id="result" style="display:none;">
+ 	<strong>Cost Per Shirt:</strong> <span id="perShirt"></span><br />
+	<strong>Multiplier Value:</strong> <span id="mult"></span><br />
+    <strong>Total:</strong> <span id="total"></span>
+   </div>
+
+</form>
+</body>
+</html>

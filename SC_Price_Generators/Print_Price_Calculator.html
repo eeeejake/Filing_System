@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Print Price Calculator</title>
+<link href="calculator_styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="print_price_validation.js"></script>
+<script type="text/javascript">
+<!-- 
+$(document).ready(function() {
+	$('#calculateTotal').click(function() {
+			/*This code is to calculate print prices based on quantity*/
+						
+			var colorQuantity=$('#colorQuantity').val();//input of Color Quantity field
+			var garmentQuantity=$('#quantity').val(); //input of garment quantity field
+			var printPrice=0; //calculated by garment quantity input
+			var setupCost=0; //calculated by garment quantity input and colorQuantity Input
+			var screenSize=$('#screenradio input:radio:checked').val();//selection of screensize radio box
+			var screenCostBig = 15.00
+			var screenCostSmall = 10.00
+			
+			/* quantity 1-5 */	
+				if ((colorQuantity == 1) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 5.00;
+				} else if ((colorQuantity == 2) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 10.00, setupCost = 7.50;
+				} else if ((colorQuantity == 3) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 15.00, setupCost = 15.00;
+				} else if ((colorQuantity == 4) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 20.00, setupCost = 22.50;
+				} else if ((colorQuantity == 5) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 25.00, setupCost = 30.00;
+				} else if ((colorQuantity == 6) && (garmentQuantity >0 && garmentQuantity<=5)) {
+    				printPrice = 30.00, setupCost = 37.50;
+			/* quantity 6-11 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 3.75;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 5.10;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 8.85, setupCost = 7.50;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 12.60, setupCost = 15.00;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 16.35, setupCost = 22.50;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=6 && garmentQuantity<=11)) {
+    				printPrice = 20.10, setupCost = 30.00;
+			/* quantity 12-23 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 2.75;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 3.75;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 4.75;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 7.50, setupCost = 7.50;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 10.25, setupCost = 15.00;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=12 && garmentQuantity<=23)) {
+    				printPrice = 13.00, setupCost = 22.50;
+			/* quantity 24-35 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 2.00;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 2.75;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 3.50;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 4.25;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 6.25, setupCost = 7.50;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=24 && garmentQuantity<=35)) {
+    				printPrice = 8.25, setupCost = 15.00;	
+			/* quantity 36-59 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 1.50;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 2.10;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 2.70;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 3.30;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 3.90;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=36 && garmentQuantity<=59)) {
+    				printPrice = 4.50;
+			/* quantity 60-95 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 1.25;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 1.70;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 2.15;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 2.60;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 3.05;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=60 && garmentQuantity<=95)) {
+    				printPrice = 3.50;
+			/* quantity 96-143 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 1.05;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 1.40;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 1.75;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 2.10;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 2.45;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=96 && garmentQuantity<=143)) {
+    				printPrice = 2.80;
+			/* quantity 144-239 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = .90;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = 1.20;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = 1.50;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = 1.80;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = 2.10;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=144 && garmentQuantity<=239)) {
+    				printPrice = 2.30;
+			/* quantity 240-383 */	
+				} else if ((colorQuantity == 1) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = .80;
+				} else if ((colorQuantity == 2) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = 1.05;
+				} else if ((colorQuantity == 3) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = 1.30;
+				} else if ((colorQuantity == 4) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = 1.55;
+				} else if ((colorQuantity == 5) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = 1.80;
+				} else if ((colorQuantity == 6) && (garmentQuantity >=240 && garmentQuantity<=383)) {
+    				printPrice = 2.05;
+			/* quantity 384+ */	
+				} else if ((colorQuantity == 1) && (garmentQuantity>383)) {
+    				printPrice = .70;
+				} else if ((colorQuantity == 2) && (garmentQuantity>383)) {
+    				printPrice = .95;
+				} else if ((colorQuantity == 3) && (garmentQuantity>383)) {
+    				printPrice = 1.20;
+				} else if ((colorQuantity == 4) && (garmentQuantity>383)) {
+    				printPrice = 1.45;
+				} else if ((colorQuantity == 5) && (garmentQuantity>383)) {
+    				printPrice = 1.70;
+				} else if ((colorQuantity == 6) && (garmentQuantity>383)) {
+    				printPrice = 1.95;
+				} 
+			
+			var screenCostTotal = 0;
+			if (screenSize == "large") {
+    				screenCostTotal = screenCostBig * colorQuantity;
+				} else if (screenSize == "small") {
+    				screenCostTotal = screenCostSmall * colorQuantity;
+				}
+												
+			var totalCost = (printPrice.toFixed(2) * garmentQuantity) + setupCost + screenCostTotal; 
+			
+			validatePriceForm()
+			$('#perPrint').html(formatCurrency(printPrice));
+			$('#setup').html(formatCurrency(setupCost));
+			$('#screenfee').html(formatCurrency(screenCostTotal));
+			$('#total').html(formatCurrency(totalCost));
+			//$('#result').css('display', 'block');//replaced by validation function
+	});
+});
+
+// Function to format currency from www.JavaScriptBank.com 
+
+function formatCurrency(num) {
+		num = num.toString().replace(/\$|\,/g,'');
+		if(isNaN(num))
+		num = "0";
+		sign = (num == (num = Math.abs(num)));
+		num = Math.floor(num*100+0.50000000001);
+		cents = num%100;
+		num = Math.floor(num/100).toString();
+		if(cents<10)
+		cents = "0" + cents;
+		for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+		num = num.substring(0,num.length-(4*i+3))+','+
+		num.substring(num.length-(4*i+3));
+	return (((sign)?'':'-') + '$' + num + '.' + cents);
+	}
+-->
+</script>
+</head>
+<body>
+<h1>Print Price Calculator</h1>
+<form id="calc" name="calc" action ="">
+	<p id="screenradio">
+    	<input type="radio" name="screensize" value="large" /> Large Print<br />
+		<input type="radio" name="screensize" value="small" /> Small Print (less than 4" square)
+    </p>
+	<p>
+      <select id="colorQuantity" name="colorQuantity" type="select">
+      <!--<label for="style">Type of Garments</label>-->
+      	<option>1</option>
+        <option>2</option>
+        <option>3</option>
+  		<option>4</option>
+  		<option>5</option>
+        <option>6</option>
+      </select>
+      Number of Colors in Print
+    </p>
+  	<p>
+      <input id="quantity" name="quantity" type="text"/>
+      <label for="quantity">Number of Garments</label>
+    </p>
+  
+    <p>
+<input name="calculateTotal" id="calculateTotal" type="button" value="Calculate Total" />
+    <input name="resetAll" id="resetAll"type="reset" value="Reset" onclick="document.location.reload()"/><br></p>
+    <div id="result" style="display:none;">
+ 	<strong>Cost Per Print:</strong> <span id="perPrint"></span><br />
+    <strong>Under Minimum Setup Fee:</strong> <span id="setup"></span><br />
+    <strong>Screen Fee:</strong> <span id="screenfee"></span><br />
+    <strong>Total:</strong> <span id="total"></span><br />
+   </div>
+
+</form>
+</body>
+</html>

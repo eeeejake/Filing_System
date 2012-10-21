@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+/* Stylesheet for price calculator applications*/
+
+#result {
+	color:blue;
+	font-size:small;
+	display:none;
+}
+
+#error {
+	color:red;
+	font-size:small;
+	display:none;
+}
+.invalid {
+	background:red;
+	color:white;
+	font-size:small;
+}
+
+.required {
+	color:red;
+	font-size:small;
+}

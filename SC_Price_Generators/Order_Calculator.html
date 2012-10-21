@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Order Calculator Form</title>
+<link href="calculator_styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="pricefunctions.js"></script>
+<script type="text/javascript" src="validation.js"></script>
+<script type="text/javascript">
+<!-- 
+$(document).ready(function() {
+	$('#calculateTotal').click(function() {
+			/*This code is to calculate an order total based on quantity multipliers for common blank garments 1-14-2012*/
+			
+		//variables for garments
+            var selectedStyle = $('#garment_style').val();//input of garment_style selection	
+            var garmentQuantity=$('#quantity').val(); //input of garment quantity field			
+			var priceRange = findPriceBracket(garmentQuantity)
+			var garmentPrice = findSelected(priceRange, selectedStyle)		
+			var priceBracket = showRange(garmentQuantity)
+			
+		//variables for printing results
+			var colorQuantity=$('#colorQuantity').val();//input of Color Quantity field
+			var colorQuantity2=$('#colorQuantity2').val();//input of Color Quantity field
+			var frontPrint= getPrintPrice(colorQuantity, garmentQuantity)
+			var backPrint= getPrintPrice(colorQuantity2, garmentQuantity)
+			var printPrice=frontPrint + backPrint; //calculated by garment quantity input and colorQuantity Input
+			var piecePrice = parseFloat(garmentPrice) + parseFloat(printPrice);
+		
+		//variables for screens
+			var screenSize=$('#screenradio input:radio:checked').val();//selection of screensize radio box
+			var screenSize2=$('#screenradio2 input:radio:checked').val();//selection of screensize2 radio box
+			var screenCostBig = 15.00
+			var screenCostSmall = 10.00
+			var screenCost1 = 0; //price for screens based on design size and color quantities
+			var screenCost2 = 0; //price for screens based on design size and color quantities
+			
+			if (screenSize == "large" && colorQuantity != "Select") {
+    				screenCost1 = screenCostBig * colorQuantity;
+				} else if (screenSize == "small" && colorQuantity != "Select") {
+    				screenCost1 = screenCostSmall * colorQuantity;
+				} else screenCost1 = 0;
+				
+			if (screenSize2 == "large" && colorQuantity != "Select") {
+    				screenCost2 = screenCostBig * colorQuantity2;
+				} else if (screenSize2 == "small" && colorQuantity != "Select") {
+    				screenCost2 = screenCostSmall * colorQuantity2;
+				} else screenCost2 = 0;
+				
+		//variables for under minimum setup	
+			var setupCost1 = getSetUpPrice(colorQuantity, garmentQuantity) //calculated by garment quantity input and colorQuantity Input for print 1
+			var setupCost2 = getSetUpPrice(colorQuantity2, garmentQuantity) //calculated by garment quantity input and colorQuantity2 Input for print 2
+			var setupTotal = setupCost1 + setupCost2;			
+			var screenCostTotal = parseFloat(screenCost1) + parseFloat(screenCost2);
+			if (setupTotal > 30) {
+    				alert("Multi-color prints at this price range incur a setup fee. Other options may be available.")
+					}
+			
+		//variables for grand total
+			var totalCost= (parseFloat(piecePrice) * garmentQuantity) + setupTotal + screenCostTotal;
+			var individualCost= totalCost / garmentQuantity;
+			
+            $('#shirtStyle').html(selectedStyle);
+            $('#shirtQuantity').html(garmentQuantity);
+            $('#perShirt').html(formatCurrency(garmentPrice));
+	    	$('#mult').html(priceBracket);
+			$('#frontprint').html(formatCurrency(frontPrint));
+			$('#backprint').html(formatCurrency(backPrint));
+			$('#perPrint').html(formatCurrency(printPrice));
+			$('#perPiece').html(formatCurrency(piecePrice));
+			$('#setup').html(formatCurrency(setupTotal));
+			$('#screenfee').html(formatCurrency(screenCostTotal));
+			$('#total').html(formatCurrency(totalCost));
+			$('#individual').html(formatCurrency(individualCost));
+			validateForm()
+     });
+  });
+-->
+</script>
+</head>
+<body>
+<div id="container" style="width: 400px;">
+<h1>Order Price Calculator</h1>
+<p>This form will calculate order totals for simple orders of a particular garment style based on the number of prints, amount of colors per print, and quantity of garments.</p>
+<form id="calc" name="calc" action ="">
+    <fieldset>
+	<legend>Shirt Style</legend>
+      <select id="garment_style" name="garment_style">
+      	<option>T-shirt</option>
+        <option>Kid's T-Shirt</option>
+        <option>Longsleeve T-Shirt</option>
+  		<option>7oz Hooded Sweatshirt</option>
+  		<option>9oz Hooded Sweatshirt</option>
+        <option>7oz Crew</option>
+        <option>9oz Crew</option>
+      </select>
+      Garment Style
+      </fieldset>
+<br />
+    <fieldset>
+    <legend>Shirt Quantity <span class="required">*</span></legend>
+      <input id="quantity" name="quantity" type="text"/>
+      <label for="quantity">Number of Garments</label>
+      </fieldset>
+<br />   
+    <fieldset id="screenradio">
+    <legend>Front Print  <span class="required">*</span></legend>
+    	<input type="radio" name="screensize" value="large" /> Large Print<br />
+		<input type="radio" name="screensize" value="small" /> Small Print (less than 4" square)<br />
+        <input type="radio" name="screensize" value="none" /> No Front Print<br />
+
+ 
+      <select id="colorQuantity" name="colorQuantity">
+      	<option>Select</option>
+      	<option>1</option>
+        <option>2</option>
+        <option>3</option>
+  		<option>4</option>
+  		<option>5</option>
+        <option>6</option>
+      </select>
+      Number of Colors in Front Print
+      </fieldset>
+<br />   
+    <fieldset id="screenradio2">
+    <legend>Back Print  <span class="required">*</span></legend>
+    	<input type="radio" name="screensize2" value="large" /> Large Print<br />
+		<input type="radio" name="screensize2" value="small" /> Small Print (less than 4" square)<br />
+        <input type="radio" name="screensize2" value="none" /> No Back Print<br />
+
+    
+      <select id="colorQuantity2" name="colorQuantity2">
+      	<option>Select</option>
+      	<option>1</option>
+        <option>2</option>
+        <option>3</option>
+  		<option>4</option>
+  		<option>5</option>
+        <option>6</option>
+      </select>
+      Number of Colors in Back Print
+      </fieldset>
+   <p>
+    <input name="calculateTotal" id="calculateTotal" type="button" value="Calculate Total" />
+	<input name="resetAll" id="resetAll"type="reset" value="Reset" onclick="document.location.reload()"/>
+    </p>
+</form>
+</div>
+ <div id="result">
+ <h2>Price Result:</h2>
+        <strong>Garment Selected:</strong> <span id="shirtStyle"></span><br />
+        <strong>Quantity of Shirts:</strong> <span id="shirtQuantity"></span><br />
+ 		<strong>Cost Per Blank Shirt:</strong> <span id="perShirt"></span><br />
+		<strong>Price Bracket:</strong> <span id="mult"></span><br />
+        <strong>Front Print Price:</strong> <span id="frontprint"></span><br />
+        <strong>Back Print Price:</strong> <span id="backprint"></span><br />
+        <strong>Printing Cost Per Shirt:</strong> <span id="perPrint"></span><br />
+        <strong>Cost Per Printed Shirt:</strong> <span id="perPiece"></span><br />
+    	<strong>Under Minimum Setup Fee:</strong> <span id="setup"></span><br />
+    	<strong>Screen Fee:</strong> <span id="screenfee"></span><br />
+        <strong>Grand Total:</strong> <span id="total"></span><br />
+        <strong>Individual Cost:</strong> <span id="individual"></span>
+   </div>
+   <p id="error" class="required">* Required fields must be filled to complete the calculation</p>
+</body>
+</html>

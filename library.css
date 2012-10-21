@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* Screen Library CSS */
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	}
+	
+h1 {
+	color:red;
+	}
+	
+.content, .contentA{
+	padding:10px;
+	width:370px
+	}
+	
+.left{
+	width:150px;
+	float:left;
+	padding:7px 0px 0px 7px;
+	min-height:24px;
+	}
+	
+.right{
+	width:200px;
+	float:left;
+	padding:5px;
+	min-height:24px;
+	}
+	
+.clear{
+	float:none;
+	clear:both;
+	height:0px;
+	}
+	
+.row{
+	background-color:none;
+	display:block;
+	min-height:32px;
+	}
+	
+.text{
+	width:190px;
+	}
+	
+.ruler{
+	width:400px; border-bottom:dashed 1px #dcdcdc;
+	}
+	
+input:focus, textarea:focus{
+	background-color:#E7F7FF;
+	}
+	
+tr:focus{
+	background-color:#fcfcf0;
+	}
+	
+tr.navlink, td.navlink{
+	background-color:#FFF;
+	text-align:center;
+	}
+	
+td{
+	vertical-align:top;
+	padding:10px;
+	border: 1px solid green;
+	}
+	
+th{
+	background-color:#333;
+	color:white;
+	border: 1px solid black;
+	padding:10px;
+	}
+	
+.over{
+	background-color:#e6e2af;
+	}
+	
+.out{
+	background-color:none;
+	}
+.required{
+		color:red;
+	}
+	
+table {
+	background-color:#FFF;
+	border-collapse:collapse;
+	border: 1px solid black;
+	padding:10px;
+	}
+	
+.odd {
+	background-color: #E7F7FF;
+	}
+		
+#loginform {
+	display:none;
+	}
+	
+.na {
+	background-color: #CCC;
+	}
