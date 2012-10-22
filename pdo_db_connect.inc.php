@@ -1,17 +1,17 @@
-<?php function dbConnect($type) {
+<?php function dbConnect($type) {//defines connection to database with PDO 
   if ($type  == 'query') {
-    $user = 'shirtcir_squery';
-	$pwd = 'webeshirts';
+    $user = 'username';
+	$pwd = 'password';
 	}
   elseif ($type == 'admin') {
-    $user = 'shirtcir_sadmin';
-	$pwd = 'webeshirts2';
+    $user = 'admin username';
+	$pwd = 'admin passwork';
 	}
   else {
     exit('Unrecognized connection type');
 	}
   try {
-    $conn = new PDO('mysql:host=localhost;dbname=shirtcir_screenfile', $user, $pwd);
+    $conn = new PDO('mysql:host=localhost;dbname=database_name', $user, $pwd);
     return $conn;
 	}
   catch (PDOException $e) {

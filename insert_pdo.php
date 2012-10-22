@@ -1,4 +1,5 @@
 <?php
+//generates form to connect to database and insert new entries
 if (array_key_exists('file', $_POST)) {
 	//Establish type of user connection
 	include('pdo_db_connect.inc.php');
@@ -22,7 +23,7 @@ if (array_key_exists('file', $_POST)) {
   $stmt->bindParam(':notes', $_POST['notes'], PDO::PARAM_STR);
   $OK = $stmt->execute();
   // redirect if successful or display error
-  if ($OK) {
+  if ($OK) {//redirect to main page
 	header('Location: screenfiler.php');
     exit;
     }

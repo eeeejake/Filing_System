@@ -1,4 +1,5 @@
 <?php
+//This script will process the deletion of an entry from the database, in this case a specific silk screen database
 //Establish type of user connection
 include('pdo_db_connect.inc.php');
 // remove backslashes
