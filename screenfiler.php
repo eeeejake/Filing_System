@@ -76,8 +76,7 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 		echo "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='insert_pdo.php'>FILE A NEW SCREEN</a>";
 	}
 	?>
-	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp
-	<a href="../FORMS/SC_Invoice_Form.pdf">MAKE INVOICE</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Order_Calculator.html">ORDER CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Blank_Price_Calculator.html">BLANK CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Print_Price_Calculator.html">PRINT CALCULATOR</a>

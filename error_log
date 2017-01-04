@@ -66,3 +66,35 @@
 [13-Jul-2011 19:29:19] PHP Notice:  Undefined variable: numRows in /home/shirtcir/public_html/screen_filer/wordsearch.php on line 84
 [13-Jul-2011 19:29:19] PHP Notice:  Undefined variable: conn in /home/shirtcir/public_html/screen_filer/wordsearch.php on line 95
 [13-Jul-2011 19:29:19] PHP Fatal error:  Call to a member function query() on a non-object in /home/shirtcir/public_html/screen_filer/wordsearch.php on line 95
+[02-Jan-2017 18:46:44] PHP Notice:  Undefined index:  submit in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 21
+[02-Jan-2017 18:46:44] PHP Notice:  Undefined variable: numRows in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 84
+[02-Jan-2017 18:46:44] PHP Notice:  Undefined variable: conn in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 95
+[02-Jan-2017 18:46:44] PHP Fatal error:  Call to a member function query() on a non-object in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 95
+[02-Jan-2017 18:46:59] PHP Notice:  Undefined index:  submit in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 21
+[02-Jan-2017 18:46:59] PHP Notice:  Undefined variable: numRows in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 84
+[02-Jan-2017 18:46:59] PHP Notice:  Undefined variable: conn in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 95
+[02-Jan-2017 18:46:59] PHP Fatal error:  Call to a member function query() on a non-object in /home2/jacobsc1/public_html/screen_filer/wordsearch.php on line 95
+[02-Jan-2017 18:49:22] PHP Parse error:  syntax error, unexpected T_STRING in /home2/jacobsc1/public_html/screen_filer/pdo_db_connect.inc.php on line 22
+[02-Jan-2017 18:49:46] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (28000/1045): Access denied for user 'admin'@'localhost' (using password: YES) in /home2/jacobsc1/public_html/screen_filer/pdo_db_connect.inc.php on line 35
+[02-Jan-2017 18:49:46] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 27
+[02-Jan-2017 18:49:46] PHP Fatal error:  Call to undefined method mysqli::errorInfo() in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 28
+[02-Jan-2017 18:51:14] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (28000/1045): Access denied for user 'jacobsc1_admin'@'localhost' (using password: YES) in /home2/jacobsc1/public_html/screen_filer/pdo_db_connect.inc.php on line 35
+[02-Jan-2017 18:51:14] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 27
+[02-Jan-2017 18:51:14] PHP Fatal error:  Call to undefined method mysqli::errorInfo() in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 28
+[02-Jan-2017 18:52:03] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (28000/1045): Access denied for user 'jacobsc1_admin'@'localhost' (using password: NO) in /home2/jacobsc1/public_html/screen_filer/pdo_db_connect.inc.php on line 35
+[02-Jan-2017 18:52:03] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 27
+[02-Jan-2017 18:52:03] PHP Fatal error:  Call to undefined method mysqli::errorInfo() in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 28
+[02-Jan-2017 18:52:07] PHP Warning:  mysqli::mysqli() [<a href='mysqli.mysqli'>mysqli.mysqli</a>]: (28000/1045): Access denied for user 'jacobsc1_admin'@'localhost' (using password: NO) in /home2/jacobsc1/public_html/screen_filer/pdo_db_connect.inc.php on line 35
+[02-Jan-2017 18:52:07] PHP Warning:  mysqli::query() [<a href='mysqli.query'>mysqli.query</a>]: Couldn't fetch mysqli in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 27
+[02-Jan-2017 18:52:07] PHP Fatal error:  Call to undefined method mysqli::errorInfo() in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 28
+[02-Jan-2017 18:57:02] PHP Fatal error:  Call to undefined method mysqli::errorInfo() in /home2/jacobsc1/public_html/screen_filer/screenfiler.php on line 28
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: editlink in /home2/jacobsc1/public_html/screen_filer/login.php on line 135
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: deletelink in /home2/jacobsc1/public_html/screen_filer/login.php on line 136
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: editlink in /home2/jacobsc1/public_html/screen_filer/login.php on line 135
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: deletelink in /home2/jacobsc1/public_html/screen_filer/login.php on line 136
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: editlink in /home2/jacobsc1/public_html/screen_filer/login.php on line 135
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: deletelink in /home2/jacobsc1/public_html/screen_filer/login.php on line 136
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: editlink in /home2/jacobsc1/public_html/screen_filer/login.php on line 135
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: deletelink in /home2/jacobsc1/public_html/screen_filer/login.php on line 136
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: editlink in /home2/jacobsc1/public_html/screen_filer/login.php on line 135
+[03-Jan-2017 22:22:37] PHP Notice:  Undefined variable: deletelink in /home2/jacobsc1/public_html/screen_filer/login.php on line 136

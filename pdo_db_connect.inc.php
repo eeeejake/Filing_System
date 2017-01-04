@@ -1,17 +1,17 @@
 <?php function dbConnect($type) {//defines connection to database with PDO 
   if ($type  == 'query') {
-    $user = 'username';
-	$pwd = 'password';
+    $user = 'jacobsc1_squery';
+	$pwd = 'Type_0_Negative@';
 	}
   elseif ($type == 'admin') {
-    $user = 'admin username';
-	$pwd = 'admin passwork';
+    $user = 'jacobsc1_sadmin';
+	$pwd = 'Type_0_Negative@';
 	}
   else {
     exit('Unrecognized connection type');
 	}
   try {
-    $conn = new PDO('mysql:host=localhost;dbname=database_name', $user, $pwd);
+    $conn = new PDO('mysql:host=localhost;dbname=jacobsc1_library', $user, $pwd);
     return $conn;
 	}
   catch (PDOException $e) {
@@ -19,20 +19,20 @@
 	exit;
 	}
     }
-/*MySQLI version
-function dbConnect($type) {
+//MySQLI version
+/*function dbConnect($type) {
   if ($type  == 'query') {
-    $user = 'squery';
-	$pwd = 'webeshirts';
+    $user = 'jacobsc1_squery';
+	$pwd = 'Type_0_Negative@';
 	}
   elseif ($type == 'admin') {
-    $user = 'sadmin';
-	$pwd = 'webeshirts2';
+    $user = 'jacobsc1_sadmin';
+	$pwd = 'Type_0_Negative@';
 	}
   else {
     exit('Unrecognized connection type');
 	}
-  $conn = new mysqli('localhost', $user, $pwd, 'shirtcir_screenfile') or die ('Cannot open database');
+  $conn = new mysqli('localhost', $user, $pwd, 'jacobsc1_library') or die ('Cannot open database');
   return $conn;
   }*/
 	?>
