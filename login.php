@@ -110,7 +110,6 @@ function checkForm() {//validates login form
 </div>
 <?php echo "There are currently $numRows entries in the Library Database ";?>
 <p><a href="search_db.php">SEARCH FOR A SCREEN</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-	<a href="../FORMS/SC_Invoice_Form.pdf">MAKE INVOICE</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Order_Calculator.html">ORDER CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Blank_Price_Calculator.html">BLANK CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="SC_Price_Generators/Print_Price_Calculator.html">PRINT CALCULATOR</a></p>
@@ -127,12 +126,25 @@ function checkForm() {//validates login form
 
 <?php 
  foreach ($conn->query($getDetails)as $row) { ?>
+ <?php 
+ //variables allow user to edit and delete if logged in as admin
+if (isset($_SESSION['userok']) && isset($_SESSION['passwdok'])) {
+	$editlink ="<a href='update_pdo.php?screen_id=".$row['screen_id'].";'>EDIT</a>";
+	$deletelink="<a href='delete_pdo.php?screen_id=".$row['screen_id'].";'>DELETE</a>";
+}
+else {
+	$editlink = "<span class='na'>EDIT</span>";
+	$deletelink = "<span class='na'>DELETE</span>";
+}
+?>
 	 <tr>
     	<td><?php echo $row['screen_date']; ?></td>
         <td><?php echo $row['screen_number']; ?></td>
         <td><?php echo $row['screen_name']; ?></td>
         <td><?php echo $row['screen_refs']; ?></td>
         <td><?php echo $row['screen_notes']; ?></td>
+        <td><?php echo $editlink; ?></td>
+        <td><?php echo $deletelink; ?></td>
         <td><a href="renew_pdo.php?screen_id=<?php echo $row['screen_id']; ?>">RENEW</a></td>
 	</tr>
 <?php } ?>
