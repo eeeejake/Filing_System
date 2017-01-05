@@ -17,7 +17,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
+<<<<<<< HEAD
 -- Database: `library`
+=======
+-- Database: `jacobsc1_library`
+>>>>>>> origin/master
 --
 
 -- --------------------------------------------------------
@@ -35,7 +39,24 @@ CREATE TABLE IF NOT EXISTS `library` (
   `screen_notes` varchar(255) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
+<<<<<<< HEAD
 -- -------------------------------------
+=======
+--
+-- Dumping data for table `library`
+--
+
+INSERT INTO `library` (`screen_id`, `screen_date`, `screen_number`, `screen_name`, `screen_refs`, `screen_notes`) VALUES
+(1, '2017-01-03 06:50:35', 1, 'First Item', 'Example', 'this is an example for the file system'),
+(2, '2017-01-03 06:52:53', 2, 'Second item', 'item 2', 'new item'),
+(3, '2017-01-03 06:53:30', 3, 'item 3', 'third item', 'example 3'),
+(4, '2017-01-03 06:54:18', 4, 'item 4', 'fourth', 'example 4'),
+(5, '2017-01-04 05:08:57', 5, 'fifth', 'Fifth Example', 'This is example 5');
+
+-- --------------------------------------------------------
+
+--
+>>>>>>> origin/master
 -- Table structure for table `logon`
 --
 
@@ -47,7 +68,11 @@ CREATE TABLE IF NOT EXISTS `logon` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
+<<<<<<< HEAD
 -- default user value is 'admin' + pwd 'logon' for table `logon`
+=======
+-- Dumping data for table `logon`
+>>>>>>> origin/master
 --
 
 INSERT INTO `logon` (`user_id`, `username`, `salt`, `password`) VALUES
