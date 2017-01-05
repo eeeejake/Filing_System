@@ -27,10 +27,10 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 	$result = $conn->query($sql);
 	$error = $conn->errorInfo();
 	if (isset($error[2])) die($error[2]);
-	
+
 	//find out how many records retrieved
 	$numRows = $result->fetchColumn();
-	
+
 	$totalResults = $numRows;
 	//free the database resources
 	$result->closeCursor();
@@ -38,18 +38,17 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
     $curPage = isset($_GET['curPage']) ? $_GET['curPage'] : 0;
     //calculate the start row of the subset
     $startRow = $curPage * SHOWMAX;
-	
+
 	//prepare second SQL query
 	$getDetails = "SELECT * FROM library ORDER BY screen_name LIMIT $startRow,".SHOWMAX;
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Screen Database</title>
+<title>Filing System</title>
 <link href="library.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">></script>
 <script type="text/javascript">
 	$(document).ready(function( ) {
 	$('tr:nth-child(odd)').addClass('odd');
@@ -60,20 +59,20 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 
 <body>
 
-<h1>Screen Database</h1>
-<p><?php 
+<h1>Filing System</h1>
+<p><?php
 	if (isset($_SESSION['userok']) && isset($_SESSION['passwdok'])) {
 		echo "<h4><span class='required'>LOGGED IN</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='login.php'>LOGOUT</a></h4>";
 	}
 	else{
 		echo "<h4><span class='required'><a href='login.php'>LOGIN TO EDIT OR DELETE</span></a></h4>";
-	
+
 	}
 	echo "There are currently $numRows entries in the Library Database ";?>
 </p>
-<p><a href="search_db.php">SEARCH FOR A SCREEN</a><?php 
+<p><a href="search_db.php">SEARCH</a><?php
 	if (isset($_SESSION['userok']) && isset($_SESSION['passwdok'])) {
-		echo "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='insert_pdo.php'>FILE A NEW SCREEN</a>";
+		echo "&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='insert_pdo.php'>NEW ENTRY</a>";
 	}
 	?>
 	&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -84,8 +83,8 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 <table class="screenFile">
 	<tr>
     	<th>Date</th>
-        <th>Screen Number</th>
-        <th>Screen Name</th>
+        <th>Number</th>
+        <th>Name</th>
         <th>References</th>
         <th>Notes</th>
         <th colspan="3">Modify</th>
@@ -93,7 +92,7 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 
 
 <?php foreach ($conn->query($getDetails)as $row) { //retrieve screen data from db in tables?>
-<?php 
+<?php
  //variables allow user to edit and delete if logged in as admin
 if (isset($_SESSION['userok']) && isset($_SESSION['passwdok'])) {
 	$editlink ="<a href='update_pdo.php?screen_id=".$row['screen_id'].";'>EDIT</a>";

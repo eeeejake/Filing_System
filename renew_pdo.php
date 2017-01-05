@@ -42,29 +42,28 @@ if (isset($stmt) && !$OK && !$renewed) {
     }
   }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Screen Library - renew record</title>
+<title>Filing System - renew record</title>
 <link href="library.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="valid.js"></script>
 </head>
 
 <body>
-<h1>Renew Screen</h1>
-<p><a href="screenfiler.php">SHOW ALL SCREENS</a></p>
+<h1>Renew Entry</h1>
+<p><a href="screenfiler.php">SHOW ALL</a></p>
 <?php if (!isset($screen_id)) { ?>
 <p class="warning">Invalid request: record does not exist.</p>
 <?php } else { ?>
 <p class="warning">Please confirm that you want to renew the following item. This action cannot be undone.</p>
 <p>
-<?php echo "SCREEN NAME: $screen_name".'<br />SCREEN NUMBER: '.htmlentities($screen_number). "<br />DATE LAST MODIFIED: $screen_date"; ?></p>
+<?php echo "NAME: $screen_name".'<br />NUMBER: '.htmlentities($screen_number). "<br />DATE LAST MODIFIED: $screen_date"; ?></p>
 <?php } ?>
 <form id="renewform" name="renewform" method="post" action="" onsubmit="return confirmUpdate()" onreset="window.history.back()">
     <p>
 	<?php if (isset($screen_id)) { ?>
-        <input type="submit" name="renew" value="Confirm renewal" /> 
+        <input type="submit" name="renew" value="Confirm renewal" />
 	<?php } ?>
 		<input name="cancel_renewal" type="reset" id="cancel_renewal" value="Cancel" />
 	<?php if (isset($screen_id)) { ?>
@@ -74,4 +73,3 @@ if (isset($stmt) && !$OK && !$renewed) {
 </form>
 </body>
 </html>
-

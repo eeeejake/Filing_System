@@ -1,17 +1,17 @@
-<?php function dbConnect($type) {//defines connection to database with PDO 
+<?php function dbConnect($type) {//defines connection to database with PDO
   if ($type  == 'query') {
-    $user = 'jacobsc1_squery';
-	$pwd = 'Type_0_Negative@';
+    $user = 'query';
+	$pwd = 'logon';
 	}
   elseif ($type == 'admin') {
-    $user = 'jacobsc1_sadmin';
-	$pwd = 'Type_0_Negative@';
+    $user = 'admin';
+	$pwd = 'logon';
 	}
   else {
     exit('Unrecognized connection type');
 	}
   try {
-    $conn = new PDO('mysql:host=localhost;dbname=jacobsc1_library', $user, $pwd);
+    $conn = new PDO('mysql:host=localhost;dbname=library', $user, $pwd);
     return $conn;
 	}
   catch (PDOException $e) {

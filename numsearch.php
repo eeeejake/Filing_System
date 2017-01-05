@@ -21,22 +21,22 @@ define('SHOWMAX', 10);
 if($_SESSION['numsubmit']){
   if(preg_match("/([Xx0-9-]+)/", $_SESSION['numsubmit'])){
   	$qnum=$_SESSION['numsubmit'];
-  	//connect  to the database	
+  	//connect  to the database
 	$conn = dbConnect('admin');
-	
+
 	//prepare the SQL query for the db connection using PDO COUNT function
 	//select all columns where screen number is exactly equal to qnum
 	$sql = "SELECT COUNT(*) FROM library WHERE screen_number = '" . $qnum ."'";
-		
+
 	//submit the query and capture the result
 	$result = $conn->query($sql);
-	
+
 	$error = $conn->errorInfo();
 	if (isset($error[2])) die($error[2]);
-	
+
 	//find out how many records retrieved
 	$numRows = $result->fetchColumn();
-	
+
 	$totalResults = $numRows;
 	//free the database resources
 	$result->closeCursor();
@@ -44,19 +44,18 @@ if($_SESSION['numsubmit']){
     $curPage = isset($_GET['curPage']) ? $_GET['curPage'] : 0;
     //calculate the start row of the subset
     $startRow = $curPage * SHOWMAX;
-	
+
 	//prepare SQL query
 	//prepare SQL query
 	//shows the match of number search and displays result by relevance
 	$getDetails = "SELECT * FROM library WHERE screen_number = '" . $qnum ."' LIMIT ". $startRow.','.SHOWMAX;
-	} 
+	}
   	}
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Screen Database</title>
+<title>Filing System</title>
 <link href="library.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../scripts/jquery.js"></script>
 <script type="text/javascript">
@@ -69,29 +68,29 @@ if($_SESSION['numsubmit']){
 
 <body>
 <h1>Search Results</h1>
-<p><?php 
+<p><?php
 	if (isset($_SESSION['userok']) || isset($_SESSION['passwdok'])) {
 		echo "<h4><span class='required'>LOGGED IN</span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href='login.php'>LOGOUT</a></h4>";
 	}
 	else{
 		echo "<h4><span class='required'><a href='login.php'>LOGIN TO EDIT OR DELETE</span></a></h4>";
-	
+
 	}?>
 </p>
-<p><a href="screenfiler.php">SHOW ALL SCREENS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="search_db.php">NEW SEARCH</a></p>
+<p><a href="screenfiler.php">SHOW ALL</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="search_db.php">NEW SEARCH</a></p>
 <?php echo "<p>$numRows matching entries in the Library Database </p>"; ?>
 <table class="screenFile">
 	<tr>
     	<th>Date</th>
-        <th>Screen Number</th>
-        <th>Screen Name</th>
+        <th>Number</th>
+        <th>Name</th>
         <th>References</th>
         <th>Notes</th>
         <th colspan="3">Modify</th>
 	</tr>
 
 <?php foreach ($conn->query($getDetails)as $row) { //retrieve screen data from db in tables?>
-<?php 
+<?php
  //variables allow user to edit and delete if logged in as admin
 if (isset($_SESSION['userok']) && isset($_SESSION['passwdok'])) {
 	$editlink ="<a href='update_pdo.php?screen_id=".$row['screen_id'].";'>EDIT</a>";

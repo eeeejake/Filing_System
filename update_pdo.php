@@ -41,7 +41,7 @@ if (array_key_exists('update', $_POST)) {
           WHERE screen_id = ?';
   $stmt = $conn->prepare($sql);
   // execute query by passing array of variables
- 
+
   $done = $stmt->execute(array($number, $project, $refs, $notes, $id));
   //original $done = $stmt->execute(array($_POST['sdate'], $_POST['snum'], $_POST['project'], $_POST['refs'],$_POST['notes']));
   }
@@ -58,10 +58,9 @@ if (isset($stmt) && !$OK && !$done) {
     echo $error[2];
 	}
   }
-?> 
+?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>library - update record</title>
@@ -70,27 +69,27 @@ if (isset($stmt) && !$OK && !$done) {
 </head>
 
 <body>
-<h1>Update Screen Library Entry</h1>
+<h1>Update the Filing System</h1>
 <p><a href="screenfiler.php">List all entries</a> </p>
 <?php if (!isset($screen_id)) {
 ?>
 <p class="warning">Invalid request: record does not exist.</p>
-<?php } 
+<?php }
 else {
 ?>
-<div style="float:left; margin-right:20px;">  
-<h4>To EDIT information for a screen in the system, use this form.</h4>
+<div style="float:left; margin-right:20px;">
+<h4>To EDIT information for an entry in the system, use this form.</h4>
    <form name="editform" action="" method="post"  id="editform" onsubmit="return checkUpdate()" onreset="window.history.back()">
-  
-        <fieldset> 
-        <legend>Edit A Screen:</legend>   
+
+        <fieldset>
+        <legend>Edit An Entry:</legend>
         <div class="row">
 			<div class="left"><label for="sdate">Last Modified:</label></div>
 			<div class="right"><input name="sdate" type="text" class="text" value="<?php echo htmlentities($screen_date, ENT_COMPAT, 'utf-8'); ?>"/></div>
 			<div class="clear"></div>
-		</div>  
+    		</div>
 		<div class="row">
-			<div class="left"><label for="snum">Screen Number:</label></div>
+			<div class="left"><label for="snum">Number:</label></div>
 			<div class="right"><input name="snum" type="text" class="text" value="<?php echo htmlentities($screen_number, ENT_COMPAT, 'utf-8'); ?>"/></div>
 			<div class="clear"></div>
 		</div>
@@ -117,9 +116,9 @@ else {
 			<div class="right"><span class="required">*Required Fields</span></div>
 			<div class="clear"></div>
 		</div>
-		</div>               
-     </fieldset>             
-    </form> 
+		</div>
+     </fieldset>
+    </form>
 </div>
 
 <?php } ?>

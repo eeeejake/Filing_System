@@ -5,14 +5,14 @@ if (array_key_exists('file', $_POST)) {
 	include('pdo_db_connect.inc.php');
 	// remove backslashes
   	include('stripslash.inc.php');
-  
+
   nukeMagicQuotes(); // function from include to remove backslashes
   // initialize flag
   $OK = false;
   // create database connection
   $conn = dbConnect('admin');
   // create SQL
-  $sql = 'INSERT INTO library (screen_date, screen_number, screen_name, screen_refs, screen_notes) 
+  $sql = 'INSERT INTO library (screen_date, screen_number, screen_name, screen_refs, screen_notes)
           VALUES(NOW(), :number, :name, :refs, :notes)';
   // prepare the statement
   $stmt = $conn->prepare($sql);
@@ -33,30 +33,29 @@ if (array_key_exists('file', $_POST)) {
 	}
   }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Screen Database - insert new record</title>
+<title>Filing System - insert new record</title>
 <link href="library.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="valid.js"></script>
 </head>
 
 <body onload="newForm()">
-<div style="float:left; margin-right:20px;">  
-<h4>Add a screen to the Database</h4>
-<p><a href="screenfiler.php">SHOW ALL SCREENS</a></p>
+<div style="float:left; margin-right:20px;">
+<h4>Add an Entry</h4>
+<p><a href="screenfiler.php">SHOW ALL</a></p>
    <form name="addFile" action="#" method="post"  id="addFile" onsubmit="return checkScreen()" onreset="window.history.back()">
-  
-        <fieldset> 
-        <legend>File A Screen:</legend>     
+
+        <fieldset>
+        <legend>Add an Entry:</legend>
 		<div class="row">
-			<div class="left"><label for="snum">Screen Number:&nbsp;&nbsp;<span class = "required">*</span></label></div>
+			<div class="left"><label for="snum">Number:&nbsp;&nbsp;<span class = "required">*</span></label></div>
 			<div class="right"><input name="snum" type="text" class="text" /></div>
 			<div class="clear"></div>
 		</div>
 		<div class="row">
-			<div class="left"><label for="sname">Project Title:&nbsp;&nbsp;<span class = "required">*</span></label></div>
+			<div class="left"><label for="sname">Title:&nbsp;&nbsp;<span class = "required">*</span></label></div>
 			<div class="right"><input name="sname" type="text" class="text" /></div>
 			<div class="clear">
 		</div>
@@ -77,9 +76,9 @@ if (array_key_exists('file', $_POST)) {
 			<div class="right"><span class="required">*Required Fields</span></div>
 			<div class="clear"></div>
 		</div>
-		</div>               
-     </fieldset>             
-    </form> 
+		</div>
+     </fieldset>
+    </form>
 </div>
 </body>
 </html>
