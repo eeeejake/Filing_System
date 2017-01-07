@@ -1,6 +1,6 @@
 <?php
 //Establish type of user connection
-	include('pdo_db_connect.inc.php');
+	  include('pdo_db_connect.inc.php');
 	// remove backslashes
   	include('stripslash.inc.php');
 
@@ -42,7 +42,7 @@ if(array_key_exists('login', $_POST)){
 	else {
 	echo "<h2 class='required'>Wrong Username or Password</h2>";
 	session_destroy();
-	//header("location:login.php");
+	//header("location:screenfiler.php");
 	}
 
 	ob_end_flush();
