@@ -68,12 +68,13 @@ function checkForm() {//validates login form
                 </p>
         </form>
 </div>
-<?php echo "There are currently $numRows entries in the Library Database ";?>
-<p><a href="search_db.php">SEARCH</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-    <a href="SC_Price_Generators/Order_Calculator.html">ORDER CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-    <a href="SC_Price_Generators/Blank_Price_Calculator.html">BLANK CALCULATOR</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-    <a href="SC_Price_Generators/Print_Price_Calculator.html">PRINT CALCULATOR</a></p>
-		<?php
+</p>
+<?php
+	include('./menu.inc.php');
+	//link nav
+	?>
+<?php
+
 			include('./table_output.inc.php');
 			//generate table
 			?>

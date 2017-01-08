@@ -14,7 +14,7 @@ define('SHOWMAX', 10);
 //Establish type of user connection
 	include('pdo_db_connect.inc.php');
 	// remove backslashes
-  	include('stripslash.inc.php');
+  include('stripslash.inc.php');
 
 nukeMagicQuotes(); // function from include to remove backslashes & quotes
 	//connect as user to db with function
