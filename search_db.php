@@ -12,7 +12,7 @@ define('SHOWMAX', 8);
 //Establish type of user connection
 	include('pdo_db_connect.inc.php');
 	// remove backslashes
-  	include('stripslash.inc.php');
+  include('stripslash.inc.php');
 
 nukeMagicQuotes(); // function from include to remove backslashes & quotes
 ?>
@@ -21,17 +21,11 @@ nukeMagicQuotes(); // function from include to remove backslashes & quotes
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>File Search</title>
-<link href="library.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../scripts/jquery.js"></script>
-<script type="text/javascript" src="valid.js"></script>
-<script type="text/javascript">
-	$(document).ready(function( ) {
-	startForm();
-	$('tr:nth-child(odd)').addClass('odd');
-
-});
-</script>
-</head>
+<?php
+	include('./header_scripts.inc.php');
+	//links for css, jquery, and javascript
+	?>
+	</head>
 
 <body>
 <h1>Search the Filing System</h1>
